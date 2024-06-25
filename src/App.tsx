@@ -8,6 +8,9 @@ const App: React.FC = () => {
     setSelectedIcon(icon);
     setIsPickerOpen(false);
   };
+  const handleIconClose = () => {
+    setIsPickerOpen(false);
+  };
   const DynamicFaIcon = ({ name }: { name: string }) => {
     const IconComponent = Icons[name as keyof typeof Icons];
     return <IconComponent className="w-16 h-16" />;
@@ -36,9 +39,10 @@ const App: React.FC = () => {
               <IconPicker
                 rowsInOnePage={5}
                 columnsInOnePage={5}
-                iconHeight={20}
-                iconWidth={20}
+                iconHeight={40}
+                iconWidth={40}
                 onSelectIcon={handleIconSelect}
+                onClose={handleIconClose}
               />
             </div>
           )}
